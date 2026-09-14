@@ -1,3 +1,5 @@
+# Fuente: https://codeforces.com/problemset/problem/344/A
+
 t = ""
 a = ""
 c = 0
