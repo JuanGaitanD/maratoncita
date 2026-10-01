@@ -1,0 +1,22 @@
+[
+  {
+    "letter": "-",
+    "name": "ACM (caminata del equipo)",
+    "file": "Acm",
+    "topic": "Agrupación / sumas",
+    "time_complexity": "O(S log S)",
+    "memory": "O(S)",
+    "explanation": "Siguiendo el código del usuario, los tramos se agrupan por su punto de partida y se suma la longitud total de cada grupo. Como el equipo debe ir junto, su velocidad es la mínima de la lista. Para cada grupo el tiempo es la suma dividida entre esa velocidad, redondeado hacia arriba; se calcula en enteros como (t + v − 1) / v para evitar errores de punto flotante. La respuesta es el mínimo entre todos los grupos. El original arrancaba el mínimo en 200 (podía quedarse corto) y tenía un while True sin manejo de EOF; ambas cosas se corrigieron.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "-",
+    "name": "Balance",
+    "file": "Balance",
+    "topic": "Fuerza bruta",
+    "time_complexity": "O(C³)",
+    "memory": "O(1)",
+    "explanation": "Se conservan las cuatro condiciones del código original. Si a = i·t1, b = j·t2 y d = k·t3, la balanza queda equilibrada cuando a + b + d = W (todas las pesas en el otro platillo) o cuando un tipo va con el objeto: W + a = b + d, W + b = a + d o W + d = a + b. Se recorren todas las ternas con tres ciclos anidados y se cuenta cada terna una sola vez aunque cumpla varias condiciones. Con C pequeño (unas decenas) la fuerza bruta O(C³) es suficiente. Si C fuera grande, se podría fijar (i, j) y despejar k en O(1).",
+    "status": "local-ok"
+  }
+]
