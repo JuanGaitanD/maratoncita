@@ -1,0 +1,132 @@
+[
+  {
+    "letter": "A",
+    "name": "Accidental Arithmetic",
+    "file": "Accidental.py / Accidental.cpp",
+    "topic": "Probabilidad / linealidad de la esperanza",
+    "time_complexity": "O(L)",
+    "memory": "O(L)",
+    "explanation": "Por linealidad de la esperanza, cada término que no es el primero lleva signo + o − con igual probabilidad, así que su aporte esperado es cero. Solo importa el primer término. Si termina en el dígito j (probabilidad 0.1^j·0.9, o 0.1^(L−1) si llega al final), vale el prefijo de j+1 dígitos. Al multiplicar ese valor por 0.1^j queda S_j = Σ_{i≤j} d_i·10^(−i). La respuesta es 0.9·Σ_{j<L−1} S_j + S_(L−1). Se recorre el número una sola vez acumulando S_j en punto flotante; las potencias negativas que se vuelven cero no afectan la precisión pedida.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "B",
+    "name": "Boggle Sort",
+    "file": "Boggle.py / Boggle.cpp",
+    "topic": "DP",
+    "time_complexity": "O(16·6·26)",
+    "memory": "O(26)",
+    "explanation": "Se recorren los dados en orden con una DP: el estado es la última letra colocada y el valor, el mínimo de giros. Para cada dado se prueban sus 6 caras: arriba cuesta 0, cada lateral 1 y la de abajo 2. Una cara c solo se puede poner si la letra anterior es ≤ c. La cara Q se trata como el par \"QU\": exige anterior ≤ Q y deja U como última letra, así que el siguiente dado debe ser ≥ U. Se arranca con 'A' como última letra. Si al final no queda ningún estado alcanzable, se imprime impossible. Son 16·6·26 transiciones.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "C",
+    "name": "Coherency",
+    "file": "Coherency.py / Coherency.cpp",
+    "topic": "Geometría + rejilla hash + DSU",
+    "time_complexity": "O(n·k), k = vecinos por celda",
+    "memory": "O(n)",
+    "explanation": "Dos modelos son vecinos si la distancia entre centros es ≤ (d1+d2)/2 + 50.8. Multiplicando por 20 y elevando al cuadrado queda la comparación entera 400·dist² ≤ (10·(d1+d2)+1016)², sin errores de redondeo. Con diámetro máximo 160, dos vecinos están a menos de 211 mm, así que los centros se agrupan en celdas de 211 mm y solo se comparan celdas adyacentes (la mitad del vecindario, para no repetir pares). Como las bases no se solapan, cada celda tiene pocos modelos. Un DSU cuenta las componentes y, de paso, los grados. Es coherente si hay una sola componente y, con n ≥ 7, el grado mínimo es ≥ 2.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "D",
+    "name": "Dart Game",
+    "file": "Dart.py / Dart.cpp",
+    "topic": "Implementación",
+    "time_complexity": "O(1)",
+    "memory": "O(1)",
+    "explanation": "El anillo de una celda es su distancia de Chebyshev al centro o = n/2+1, es decir, max(|r−o|, |c−o|). El centro tiene distancia 0 y vale 100; cada anillo resta 10 puntos. Como n ≤ 21, el anillo más lejano es el 10 y vale 0. La fórmula max(0, 100 − 10·dist) cubre todos los casos, incluso el de no bajar de cero. Es una fórmula directa en O(1). La solución previa del usuario hacía lo mismo con más ramas; aquí queda en una línea.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "E",
+    "name": "Excruciating Elevators",
+    "file": "Elevators.py / Elevators.cpp",
+    "topic": "Residuos modulares + enumeración de fases ancladas",
+    "time_complexity": "O(n^3 · n · 4) ≈ 1e8 (C++ 0.6 s)",
+    "memory": "O(n)",
+    "explanation": "El tiempo total es la suma fija de viajes y trabajos más las esperas. Trabajando módulo P = 2·10^6 (periodo de un ascensor), cada tramo i tiene un instante ideal c_i y cada ascensor una fase k_j; la espera es (c_i + k_j − W) mod P, donde W es la espera acumulada. Fijadas las fases, lo óptimo es tomar siempre el ascensor que pase primero. En una solución óptima cada ascensor tiene algún tramo sin espera, lo que obliga a que k_j = k_j' ± (c_{i−1} − c_i) respecto a otro ascensor j'. Se enumeran esas fases como un árbol de profundidad ≤ 3 (unos 800 mil conjuntos) y se simula el greedy con poda. Ojo: anclar cada ascensor en su primer uso no es óptimo (contraejemplo en tests/Elevators.8).",
+    "status": "local-ok (py ~8 s con n=35: usar C++)"
+  },
+  {
+    "letter": "F",
+    "name": "Fences Make Good Neighbors",
+    "file": "Fences.py / Fences.cpp",
+    "topic": "DP de intervalos (triangulación de polígono convexo)",
+    "time_complexity": "O(n^3)",
+    "memory": "O(n^2)",
+    "explanation": "Para cada cadena a→b del polígono, C[a][b] es el costo mínimo de triangular la región cortada por la diagonal a–b. Sale de la recurrencia clásica sobre el vértice v del triángulo (a,v,b). A1[a][b] y A2[a][b] usan la misma recurrencia, pero exigen que el triángulo (a,v,b) contenga estrictamente al hermano 1 o al 2. Las diagonales que pasan por un hermano valen infinito y los lados del polígono valen 0. Después se prueba cada triángulo central (i,j,k): sus lados separan tres regiones; se asigna el hermano 1 a una, el 2 a otra y la tercera queda libre (6 asignaciones), sumando las diagonales del triángulo. Si nada es válido, −1. Python lento: usar C++ en el juez.",
+    "status": "local-ok (Python lento: usar C++ en el juez)"
+  },
+  {
+    "letter": "G",
+    "name": "Geometry Rush",
+    "file": "Geometry.py / Geometry.cpp",
+    "topic": "Barrido por columnas / intervalos",
+    "time_complexity": "O(w + n + m)",
+    "memory": "O(w)",
+    "explanation": "Entre dos curvas monótonas en x la zona libre es un corredor, así que en cada columna las alturas alcanzables forman un intervalo [lo, hi] con la paridad de x. Los vértices tienen coordenadas enteras, de modo que en la franja [x, x+1] cada curva es un segmento recto, más tramos verticales en x y en x+1. Una diagonal es válida si va estrictamente por debajo del techo y por encima del piso en ambos extremos. Por eso se precalculan ceil(mín techo) y floor(máx piso) en cada X entero, interpolando con aritmética entera. Las subidas válidas forman un intervalo de y, y las bajadas también. Se intersectan con [lo, hi], se ajusta la paridad y su unión es el nuevo intervalo. Si queda vacío, impossible.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "H",
+    "name": "Honest (or dishonest) Lottery",
+    "file": "Honest.py / Honest.cpp",
+    "topic": "Conteo",
+    "time_complexity": "O(n)",
+    "memory": "O(1)",
+    "explanation": "Basta un arreglo de 50 contadores. Se leen todos los números de una vez (5 por sorteo, 10n sorteos) y se incrementa el contador de cada uno. Al final se recorren los valores del 1 al 50 y se imprimen, separados por espacio, los que tienen contador > 2n. Si no hay ninguno, se imprime −1. Como el recorrido va en orden, la lista ya sale de menor a mayor y no hace falta ordenar. El tiempo es lineal en la entrada y la memoria, constante. Es una versión más corta de la solución previa del usuario.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "I",
+    "name": "Intermill Logistics",
+    "file": "Intermill.py / Intermill.cpp",
+    "topic": "Greedy + ordenamiento",
+    "time_complexity": "O(n log n)",
+    "memory": "O(n)",
+    "explanation": "Para un tiempo final T, el molino i procesa p_i·max(0, T − 2t_i) kg, y se busca el T mínimo con suma ≥ w. Esa suma es lineal por tramos, así que basta ordenar los molinos por t. Con los k más cercanos, T_k = (w + Σ 2·t_i·p_i) / Σ p_i, y es la respuesta en cuanto T_k ≤ 2·t del siguiente molino, porque ese ya no ayudaría. Todo se hace con enteros exactos (enteros grandes en Python, __int128 en C++, porque 2·t·Σp llega a unos 2·10^23) y solo se divide al imprimir. El costo lo domina el ordenamiento, O(n log n).",
+    "status": "local-ok"
+  },
+  {
+    "letter": "J",
+    "name": "Jump ... Triple Jump",
+    "file": "Jump.py / Jump.cpp",
+    "topic": "Fuerza bruta",
+    "time_complexity": "O(1000)",
+    "memory": "O(1)",
+    "explanation": "La menor suma posible es 3a y la mayor es 3c, así que a = d_min/3 y c = d_max/3 salen directo. Para b se prueba cada valor entre a+1 y c−1 (como mucho unos 330). Con cada candidato se generan las 10 sumas de multiconjuntos de tamaño 3 de {a, b, c} y se compara ese conjunto con la lista dada; el primero que coincide es la respuesta. La solución previa del usuario buscaba b con una sola condición, lo que puede dar falsos positivos. Comparar el conjunto completo evita ese riesgo y sigue siendo trivial en tiempo.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "K",
+    "name": "Knowing the Clock",
+    "file": "Knowing.py / Knowing.cpp",
+    "topic": "Matemática",
+    "time_complexity": "O(1)",
+    "memory": "O(1)",
+    "explanation": "Si han pasado t minutos desde las 12, la horaria está en t/2 grados y el minutero en 6t mod 360. Como h fija el tiempo exacto, t = 2h minutos, y entonces el minutero tiene que estar en 12h mod 360. La respuesta es yes si y solo si (12·h) mod 360 == m. Con los ejemplos: h=32 da 384 mod 360 = 24, que coincide; h=60 da 0, que no es 90. Todo es aritmética entera, sin flotantes, a diferencia de la solución previa, que comparaba contra m/12 en punto flotante.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "L",
+    "name": "Linguistic Labyrinth",
+    "file": "Labyrinth.py / Labyrinth.cpp",
+    "topic": "Conteo en retícula 3D",
+    "time_complexity": "O(n^3·(2n)^3)",
+    "memory": "O(n^3)",
+    "explanation": "Se fija el vector v = P − A. Las condiciones quedan B·v = A·v (B está en el plano perpendicular a v que pasa por A) y C·v = P·v = A·v + |v|². Para cada v (unos (2n−1)^3 vectores) se buscan los pares (A, P = A+v), y si no hay ninguno se pasa al siguiente. Si hay, se arman histogramas de B·v y de C·v y por cada par se suma cntB[A·v]·cntC[A·v + |v|²]. Los productos escalares están en [−1400, 1400] y caben en un arreglo con desplazamiento. En C++ solo se limpian las casillas usadas y en Python se usan diccionarios como histogramas (Python lento: usar C++ en el juez). El resultado necesita 64 bits.",
+    "status": "local-ok (Python lento: usar C++ en el juez)"
+  },
+  {
+    "letter": "M",
+    "name": "Marching Orders",
+    "file": "Marching.py / Marching.cpp",
+    "topic": "CRT generalizado",
+    "time_complexity": "O(n^2)",
+    "memory": "O(n)",
+    "explanation": "Simulando sobre la lista restante, cada paso i fija la congruencia m ≡ r_i (mod n−i), donde r_i es la posición de la letra elegida. Queda un sistema con módulos 20, 19, …, 1, que no son coprimos. Se combina de forma incremental: con la solución actual a (mod M) se busca t en [0, k) tal que a + M·t ≡ r (mod k). Si no existe, la respuesta es NO; si existe, a += M·t y M = mcm(M, k). El a final es el menor no negativo y, como mcm(1..20) = 232792560 < 10^9, siempre cumple la cota. Una fuerza bruta sobre m confirmó los resultados.",
+    "status": "local-ok"
+  }
+]
