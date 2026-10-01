@@ -1,0 +1,132 @@
+[
+  {
+    "letter": "A",
+    "name": "Alto Adaptation",
+    "file": "Adaptation.py / Adaptation.cpp",
+    "topic": "DP",
+    "time_complexity": "O(n^2)",
+    "memory": "O(n)",
+    "explanation": "Cada nota a admite un rango de octavas k con l <= a+12k <= h: desde ceil((l-a)/12) hasta floor((h-a)/12). Un tramo de notas consecutivas puede cantarse con la misma transposición si la intersección de sus rangos no es vacía. Se hace DP: dp[i] es el mayor valor posible del tramo más corto al partir las primeras i notas (dp[0] = infinito). Para cada i se recorre j hacia atrás manteniendo el máximo de los límites inferiores y el mínimo de los superiores; si la intersección se vacía se corta, y si no, dp[i] = max(dp[i], min(dp[j], i-j)). Con n <= 1000 son a lo sumo medio millón de pasos. La respuesta es dp[n].",
+    "status": "local-ok"
+  },
+  {
+    "letter": "B",
+    "name": "Bottle of New Port",
+    "file": "Bottle.py / Bottle.cpp",
+    "topic": "Matemáticas / ad hoc",
+    "time_complexity": "O(1)",
+    "memory": "O(1)",
+    "explanation": "Tras d días el volumen de alcohol es a - d*da y el de otros líquidos o - d*do, pero ninguno puede ser negativo: si un líquido se evapora por completo queda en cero. Se calculan ambos con enteros de 64 bits (d*da llega a 1e18, cabe en long long) y se recorta con max(0, .). El enunciado garantiza que la botella no queda vacía, así que el denominador es positivo. El porcentaje es 100*A/(A+O), que se imprime con 10 decimales. El juez acepta error 1e-6, por lo que la salida no tiene que coincidir carácter a carácter con la de los ejemplos (14.2857142857143 frente a 14.2857142857).",
+    "status": "local-ok"
+  },
+  {
+    "letter": "C",
+    "name": "Chess",
+    "file": "Chess.py / Chess.cpp",
+    "topic": "Simulación",
+    "time_complexity": "O(N^2 + M)",
+    "memory": "O(N^2)",
+    "explanation": "En vez de pintar cada ataque (una reina ataca O(N) casillas y puede haber N^2 piezas) se marcan líneas: las torres y reinas marcan su fila y su columna, y las reinas también sus dos diagonales, identificadas por r-c y r+c. Los caballos marcan directamente su propia casilla y las hasta 8 casillas a salto de caballo. Luego se recorre el tablero N x N y una casilla cuenta como atacada si está marcada su fila, su columna o alguna de sus diagonales, o si la marcó un caballo. Cada pieza se ataca a sí misma, y eso ya queda cubierto. Total O(N^2 + M).",
+    "status": "local-ok"
+  },
+  {
+    "letter": "D",
+    "name": "Dralinpome",
+    "file": "Dralinpome.py / Dralinpome.cpp",
+    "topic": "Strings / conteo",
+    "time_complexity": "O(|s|)",
+    "memory": "O(1)",
+    "explanation": "Una palabra puede reordenarse en un palíndromo si y solo si a lo sumo una letra aparece un número impar de veces: en un palíndromo las letras se emparejan simétricamente alrededor del centro y solo el carácter central (si la longitud es impar) puede quedar sin pareja. Se cuentan las apariciones de cada una de las 26 letras, se cuenta cuántas tienen frecuencia impar y se responde yes si ese número es 0 o 1, y no en otro caso. Es lineal en la longitud de la palabra y usa memoria constante.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "E",
+    "name": "Encrypting",
+    "file": "Encrypting.py / Encrypting.cpp",
+    "topic": "Strings / ad hoc",
+    "time_complexity": "O(N)",
+    "memory": "O(N)",
+    "explanation": "Las letras se separan por exactamente una columna vacía (solo puntos en ambas filas) y dentro de una letra nunca hay columnas vacías: la 'v' ocupa 4 columnas y la 'w' 8. Basta recorrer las columnas de izquierda a derecha contando la longitud de cada racha de columnas no vacías. Al encontrar una columna vacía (o el final) se cierra la racha y se emite 'v' si mide 4 o 'w' si mide 8. Se usa un centinela en la posición N para cerrar la última letra. Las filas se leen como tokens porque no contienen espacios.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "F",
+    "name": "Flakes",
+    "file": "Flakes.py / Flakes.cpp",
+    "topic": "Simulación / grillas",
+    "time_complexity": "O(nm(n+m))",
+    "memory": "O(nm)",
+    "explanation": "El tamaño de un copo centrado en un '+' es el mínimo, sobre las 8 direcciones, de la racha de caracteres correctos que sale del centro: '|' arriba y abajo, '-' a izquierda y derecha, '\\' en la diagonal superior izquierda/inferior derecha y '/' en la otra. Para cada '+' de la grilla se camina en cada dirección mientras el carácter coincida y se toma el mínimo de las 8 longitudes. La respuesta es el máximo sobre todos los centros (0 si no hay '+'). Con n, m <= 50 la fuerza bruta es inmediata. Ojo: el PDF muestra el guion como un carácter largo, pero en la entrada es '-'.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "G",
+    "name": "Genealogy Gumbo",
+    "file": "Genealogy.py / Genealogy.cpp",
+    "topic": "Grafos / alcanzabilidad",
+    "time_complexity": "O(n log n)",
+    "memory": "O(n)",
+    "explanation": "Como varias personas pueden compartir nombre, cada línea es un hijo distinto, y su padre puede ser cualquier persona con ese nombre o una persona sin padre registrado. Solo puede haber una persona sin padre: la raíz. Se arma el grafo de nombres padre -> hijo. Si hay dos o más nombres que son padres pero nunca hijos, es imposible. Si hay uno, ese es la raíz; si no hay ninguno, la raíz es una persona nueva con algún nombre. Es posible si y solo si desde la raíz se alcanzan todos los nombres. Sin candidato, se toma el último vértice en terminar un DFS completo: si alguno alcanza a todos, es ese.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "H",
+    "name": "Hidden Sequence",
+    "file": "Hidden.py / Hidden.cpp",
+    "topic": "Greedy / punteros",
+    "time_complexity": "O(total)",
+    "memory": "O(total)",
+    "explanation": "La lista del jugador i contiene la secuencia real sin las victorias de i. Si el siguiente ganador real es w, su número debe estar al frente de las dos listas en las que aparece (las de los otros dos jugadores). Dos jugadores distintos no pueden cumplir esto a la vez, porque ambos aparecen en la lista del tercero y solo uno puede estar al frente. Se mantiene un puntero por lista y en cada paso se busca el único w que cumple la condición, se avanza en esas dos listas y se agrega w. La longitud total es la suma de las tres longitudes dividida entre 2.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "I",
+    "name": "Item Selection",
+    "file": "Item.py / Item.cpp",
+    "topic": "Greedy",
+    "time_complexity": "O(n)",
+    "memory": "O(n)",
+    "explanation": "Los clics de selección de cada página son independientes. En cada página con diferencias se elige lo más barato: alternar cada casilla distinta, pulsar Select All y desmarcar los no deseados (1 + no deseados de la página), o pulsar Deselect All y marcar los deseados (1 + deseados). Las páginas sin diferencias no cuestan nada y no hace falta visitarlas. Para navegar, sean L y R la primera y la última página con trabajo: hay que recorrer [L, R] partiendo de s, y lo óptimo es ir primero al extremo más cercano, con costo (R-L) + min(|s-L|, |s-R|). Si ninguna página tiene trabajo, la respuesta es 0.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "J",
+    "name": "Judge Meetings",
+    "file": "Judge.py / Judge.cpp",
+    "topic": "Simulación",
+    "time_complexity": "O(n*m)",
+    "memory": "O(m)",
+    "explanation": "Con a lo sumo 10 jueces, 10 vacaciones cada uno y 120 días, alcanza con simular. Se empieza con libres[d] = n para cada día y, por cada vacación [s, e] de cada juez, se resta uno a cada día del intervalo. Como las vacaciones de un mismo juez no se solapan, ningún día se descuenta dos veces para el mismo juez. Al final se cuentan los días entre 1 y m con al menos 3 jueces libres. Que las vacaciones vengan desordenadas no importa, porque cada intervalo se procesa por separado. El trabajo total está acotado por n*10*m, que es muy pequeño.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "K",
+    "name": "Koehandel",
+    "file": "Koehandel.py / Koehandel.cpp",
+    "topic": "Ad hoc",
+    "time_complexity": "O(1)",
+    "memory": "O(1)",
+    "explanation": "Si se apuesta x, se termina con n - x + c monedas, y la vaca la gana quien apostó más. Lo primero es la vaca. Si n > c, se apuesta el mínimo que gana, c+1, y se termina con n-1 monedas. Si n == c no se puede ganar, pero empatando con x = c no se pierde la vaca y se conservan las n monedas. Si n < c la vaca se pierde de todos modos, así que conviene apostar 0 y quedarse con n + c monedas. Son tres casos en O(1). Con valores hasta 1e9, c+1 cabe en 32 bits, pero se usa long long por seguridad.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "L",
+    "name": "Luminosity",
+    "file": "Luminosity.py / Luminosity.cpp",
+    "topic": "DP de intervalos / TSP en la recta",
+    "time_complexity": "O(K^2), K <= 2N+1",
+    "memory": "O(K)",
+    "explanation": "Cada cristal x de la unión debe tocarse por última vez en un tiempo >= R(x), el mayor t entre los rangos que lo contienen. Si se invierte el tiempo, las últimas visitas pasan a ser primeras visitas con plazo, y lo ya visitado es un intervalo que crece alrededor del punto final. Por eso solo importan las coordenadas l_i y r_i: los puntos interiores tienen R menor o igual y se alcanzan antes. R se calcula con un barrido y un heap. Hacia adelante, los pendientes forman un intervalo [i..j] y el guardián está junto a uno de sus extremos; se atiende el extremo izquierdo o el derecho con tiempo max(llegada, R). La DP recorre el intervalo por longitud. RIESGO: la versión Python (pura, sin numpy) tarda ~28 s con N=5000; usar C++ en el juez (~0.7 s).",
+    "status": "local-ok"
+  },
+  {
+    "letter": "M",
+    "name": "Most Scenic Cycle",
+    "file": "Most.py / Most.cpp",
+    "topic": "Grafos serie-paralelo",
+    "time_complexity": "O(E log E)",
+    "memory": "O(E)",
+    "explanation": "Las condiciones (2-conexo, con E-V+1 ciclos que forman un árbol) describen un grafo serie-paralelo, parecido a uno outerplanar. Se reduce el grafo: las aristas paralelas se fusionan y los vértices de grado 2 se eliminan uniendo en serie sus dos aristas. Cada arista compuesta u-v guarda P, el mejor camino simple de u a v dentro de lo que representa, y C, el mejor ciclo dentro de ella. En serie: P = P1+P2 y C = max(C1, C2). En paralelo: P = max(P1, P2) y C = max(C1, C2, P1+P2), porque el ciclo usa un camino de cada lado. La respuesta es el mayor C. Se validó contra fuerza bruta.",
+    "status": "local-ok"
+  }
+]
