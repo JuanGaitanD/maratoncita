@@ -1,0 +1,132 @@
+[
+  {
+    "letter": "A",
+    "name": "Alien Attack",
+    "file": "Alien.py / Alien.cpp",
+    "topic": "Grafos / simulación + DSU en reversa",
+    "time_complexity": "O((n+m) log n)",
+    "memory": "O(n+m)",
+    "explanation": "La clave es que las ciudades perdidas forman componentes sin aristas hacia las sobrevivientes, así que nunca alteran los grados de éstas. Por eso el orden en que se atacan las sobrevivientes coincide con la simulación pura que ignora la ETO: un heap de máximos por (grado, -índice) con borrado perezoso, excluyendo a NY. Con ese orden fijo, el resto es conectividad decremental offline: se insertan las ciudades en orden inverso uniendo con DSU a los vecinos ya presentes (NY está desde el inicio). Una ciudad cuenta como un día si al insertarla queda en la componente de NY, es decir, si seguía conectada cuando la atacaron. La respuesta es ese conteo más uno.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "B",
+    "name": "Broken Borders",
+    "file": "Broken.py / Broken.cpp",
+    "topic": "Geometría + strings (arreglo de sufijos)",
+    "time_complexity": "O((n + Σk) log n)",
+    "memory": "O(n + Σk)",
+    "explanation": "Como no hay tres vértices consecutivos colineales, una pieza colocada debe coincidir con una cadena de aristas consecutivas del polígono. Cada par de aristas consecutivas se codifica con el token (|e1|², e1·e2, e1×e2, |e2|²), invariante a rotación y traslación. El texto es el polígono duplicado (2n tokens) y se construye su arreglo de sufijos. Cada pieza, en sus 4 variantes (espejo x→-x y reversa), se busca con búsqueda binaria y da un rango de sufijos; cada rango se pinta con la mayor longitud usando un DSU de 'siguiente sin pintar'. Con diferencias se marcan las aristas cubiertas; las piezas de una sola arista cubren toda arista de igual longitud. YES si todo queda cubierto.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "C",
+    "name": "Christmas Calories",
+    "file": "Christmas.py / Christmas.cpp",
+    "topic": "Geometría / probabilidad",
+    "time_complexity": "O(1)",
+    "memory": "O(1)",
+    "explanation": "Si el ángulo central entre los dos puntos es φ, la distancia en línea recta es la cuerda 2r·sin(φ/2). Se ve a Caro si esa cuerda es a lo sumo l, es decir si φ ≤ 2·asin(l/(2r)). Por simetría φ es uniforme en [0, π], así que la probabilidad de verla es 2·asin(l/2r)/π y la pedida es su complemento. Si l ≥ 2r se ve toda la pista y la respuesta es 0. Se imprime con 10 decimales en ambas versiones; la precisión doble basta incluso con r = 10^9 y l = 1.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "D",
+    "name": "Discus Domination",
+    "file": "Discus.py / Discus.cpp",
+    "topic": "Ventana deslizante",
+    "time_complexity": "O(n)",
+    "memory": "O(n)",
+    "explanation": "Para cada destino j el mejor punto de partida es el mínimo de a en la ventana [j-m, j], que incluye a j (lanzar al mismo cuadro da 0, así que la respuesta nunca es negativa). Ese mínimo de ventana deslizante se mantiene con una deque monótona de índices con valores crecientes: al entrar j se sacan por detrás los índices con valor mayor o igual, y por delante los que salen de la ventana. La respuesta es el máximo de a_j menos el valor del frente de la deque. Cada índice entra y sale una sola vez, por lo que el total es lineal.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "E",
+    "name": "Elegant Exterior",
+    "file": "Elegant.py / Elegant.cpp",
+    "topic": "Optimización / búsqueda ternaria",
+    "time_complexity": "O(iteraciones)",
+    "memory": "O(1)",
+    "explanation": "La madera usada es 2w + 2h + 2·sqrt(w²+h²) + 2·sqrt((w/2)²+h²) y el área es wh + wh/2 = 1.5wh. Con t = h/w la madera es w·f(t) y el área 1.5·t·w². Conviene usar toda la madera, luego w = n/f(t) y el área es 1.5·t·n²/f(t)², que depende solo de t y es unimodal. Una búsqueda ternaria de 200 iteraciones en t ∈ [0, 10] da el óptimo con precisión de sobra. Como el área escala con n², también bastaría hallar la constante una vez, pero la ternaria es igual de corta.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "F",
+    "name": "Fragmented Floor",
+    "file": "Fragmented.py / Fragmented.cpp",
+    "topic": "Geometría ortogonal + emparejamiento bipartito",
+    "time_complexity": "O(r·n + H·V·(H+V))",
+    "memory": "O(H·V)",
+    "explanation": "Resultado clásico: mínimo = r - L + 1, donde r es el número de vértices reflejos y L el máximo de cuerdas 'buenas' (segmentos axiales internos entre dos vértices reflejos) que no se cruzan ni se tocan. Las cuerdas horizontales y verticales forman un grafo bipartito de cruces y, por König, L = H + V - emparejamiento máximo. Las cuerdas se hallan lanzando desde cada vértice reflejo un rayo en la dirección opuesta a su arista horizontal (o vertical) y buscando la primera pared que toca; si el punto de impacto es otro vértice reflejo, hay cuerda. El emparejamiento se calcula con Kuhn (caminos aumentantes).",
+    "status": "local-ok"
+  },
+  {
+    "letter": "G",
+    "name": "Gorgeous Garment",
+    "file": "Gorgeous.py / Gorgeous.cpp",
+    "topic": "Búsqueda binaria + greedy",
+    "time_complexity": "O(k log² n)",
+    "memory": "O(n + k)",
+    "explanation": "Si se pueden tejer P vueltas también se pueden P-1: se quita la primera vuelta y todo se corre a vueltas más baratas. Así que se busca P binariamente. Para un P fijo se recorre desde el último color hacia atrás con el estado (vueltas que faltan R, ancho máximo permitido W = ancho del color siguiente). Que un color tome el mayor ancho posible (≤ W y que su hilo alcance) deja R más chico y W más grande, ambos mejores, así que el greedy es óptimo. Ese ancho máximo se halla con búsqueda binaria sobre sumas prefijas. Es factible si R llega a 0.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "H",
+    "name": "Hungry Hunting",
+    "file": "Hungry.py / Hungry.cpp",
+    "topic": "DP de cambio de monedas + divide y vencerás",
+    "time_complexity": "O(n·w·log n)",
+    "memory": "O(w log n)",
+    "explanation": "Es el problema de mínimo de monedas ilimitadas con el conjunto {c_j : j ≠ i} ∪ {2c_i}. Rehacer la DP para cada i cuesta n²w, demasiado. Se usa divide y vencerás sobre los platos: solve(l, r, dp) recibe la DP con todos los platos fuera de [l, r]; para la mitad izquierda se agregan los platos de la derecha y viceversa. En la hoja solo falta agregar 2c_i y leer dp[w]. Cada plato se agrega O(log n) veces. Agregar la moneda v es dp[x] = min(dp[x], dp[x-v]+1).",
+    "status": "local-ok"
+  },
+  {
+    "letter": "I",
+    "name": "Icons in the Toolbar",
+    "file": "Icons.py / Icons.cpp",
+    "topic": "Greedy / sumas alternadas",
+    "time_complexity": "O(N)",
+    "memory": "O(N)",
+    "explanation": "La fila 1 contiene al mayor, s_1, y su alto es s_1. Si la fila 2 tiene alto s_j, los íconos s_1..s_{j-1} van en la fila 1, cada uno en su propia columna, y lo mejor es emparejarlos con s_j..s_{2j-2}, que no suman ancho. Los restantes s_{2j-1}..s_{2N} se emparejan de a dos consecutivos y aportan s_{2j-1} + s_{2j+1} + ... al ancho. Se prueba cada j entre 2 y N+1 con una suma prefija y una suma alternada desde el final, y se toma el mínimo de (s_1+s_j)·ancho(j). Todo cabe en long long.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "J",
+    "name": "Jinxed Jewelry",
+    "file": "Jinxed.py / Jinxed.cpp",
+    "topic": "Greedy / ordenamiento",
+    "time_complexity": "O(n log n)",
+    "memory": "O(n)",
+    "explanation": "Cada eslabón abierto sirve para unir dos extremos. Si se abren x eslabones tomándolos de los extremos de las cadenas, quedan q piezas, y para cerrarlas en círculo hacen falta q uniones, así que se necesita x ≥ q. Para reducir q conviene consumir por completo las cadenas más cortas. Si se consumen las j más cortas (P_j eslabones) quedan n-j piezas y el costo es max(P_j, n-j); los eslabones que falten se sacan del extremo de otra cadena sin crear piezas nuevas. Se ordena y se toma el mínimo para 0 ≤ j < n.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "K",
+    "name": "K.O. Kids II",
+    "file": "Kids.py / Kids.cpp",
+    "topic": "Probabilidad / DP",
+    "time_complexity": "O(n·k)",
+    "memory": "O(k)",
+    "explanation": "Estado: dist[j] = probabilidad de que nadie haya ganado aún y el progreso global sea j obstáculos. Un niño parte de j, supera gratis esos y luego cada obstáculo i con probabilidad a_i. Se recorre con un acumulador acc(i) = acc(i-1)·a_i + dist[i]: el niño termina con probabilidad acc(k) y el nuevo progreso queda en i con probabilidad acc(i)·(1-a_{i+1}). Para la posición p, la probabilidad de que Glen gane es acc(k) calculado sobre la distribución tras p-1 niños, así que basta simular los n niños y tomar el máximo. Son n·k = 10^7 operaciones.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "L",
+    "name": "Legendary LAN-Party",
+    "file": "Legendary.py / Legendary.cpp",
+    "topic": "Greedy / intercambio (regla de Smith)",
+    "time_complexity": "O(n log n)",
+    "memory": "O(n)",
+    "explanation": "El switch k-ésimo paga c_k·(1 + suma de m de los anteriores). Por el argumento de intercambio entre vecinos, i debe ir antes que j cuando m_i·c_j < m_j·c_i, es decir, se ordena por m/c ascendente (regla de Smith de scheduling con pesos). La comparación se hace con productos enteros para evitar errores de punto flotante. Después se recorre el orden acumulando la posición y sumando c·posición. Los valores llegan a unos 2·10^17, que caben en long long.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "M",
+    "name": "Massive Mountains",
+    "file": "Massive.py / Massive.cpp",
+    "topic": "Grafos / Dijkstra sobre pares + Floyd",
+    "time_complexity": "O(n^4)",
+    "memory": "O(n^2)",
+    "explanation": "Entre dos instantes en que ambos están quietos, si uno viaja con la compañía X el otro solo puede usar Y, y así sigue hasta que ambos queden quietos a la vez. Entonces cada fase es: A recorre un camino solo de X y B uno solo de Y (o al revés), y la fase dura el máximo de los dos. Con Floyd se calculan DX y DY (distancia 0 a sí mismo). Luego se corre un Dijkstra denso sobre pares (u, v) con transición (u,v)→(u',v') de costo min(max(DX[u][u'], DY[v][v']), max(DY[u][u'], DX[v][v'])). Son 5625 estados con 5625 transiciones cada uno.",
+    "status": "local-ok"
+  }
+]
