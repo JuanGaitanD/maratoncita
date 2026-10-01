@@ -1,0 +1,12 @@
+[
+  {
+    "letter": "-",
+    "name": "Duel",
+    "file": "Duel",
+    "topic": "Greedy / dos punteros",
+    "time_complexity": "O(n log n)",
+    "memory": "O(n)",
+    "explanation": "Se ordenan las dos manos. Para calcular el máximo de victorias de una mano H1 contra H2 se usa un greedy: recorremos H1 de menor a mayor con un puntero w sobre la carta más pequeña de H2 que aún no se ha vencido; si la carta actual de H1 la supera, sumamos una victoria y avanzamos w. Si no la supera, esa carta se usa para perder contra una carta grande. Así, el máximo de Alice es wins(Alice, Bob). Su mínimo es n − wins(Bob, Alice), porque cada ronda la gana uno de los dos. El intento manual del usuario solo probaba rotaciones; esta es la idea de Duel_AI.py simplificada.",
+    "status": "local-ok"
+  }
+]
