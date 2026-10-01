@@ -1,0 +1,122 @@
+[
+  {
+    "letter": "A",
+    "name": "A Little Leftover Pizza",
+    "file": "Pizza.py / Pizza.cpp",
+    "topic": "Implementación / aritmética",
+    "time_complexity": "O(n)",
+    "memory": "O(1)",
+    "explanation": "Como solo se pueden juntar porciones de pizzas del mismo tamaño, cada tamaño se resuelve por separado. Se suman las porciones sobrantes de las pizzas pequeñas, medianas y grandes, y cada tamaño necesita ceil(total/capacidad) cajas, con capacidad 6, 8 y 12. Ninguna caja puede llevar más porciones de las que traía originalmente, y nada impide llenarla hasta esa capacidad, así que redondear la división hacia arriba da exactamente el mínimo. Un tamaño sin porciones aporta cero cajas. La lectura es lineal y la memoria constante: solo se guardan tres acumuladores.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "B",
+    "name": "Andor Strikes Again",
+    "file": "Andor.py / Andor.cpp",
+    "topic": "DP en árboles",
+    "time_complexity": "O(N)",
+    "memory": "O(N)",
+    "explanation": "Para cada nodo se calculan dos costos: volverlo verdadero (cT) y volverlo falso (cF). En una hoja el costo es 0 para su valor actual y 1 para el otro. En un nodo AND, para que sea verdadero todos los hijos deben serlo (cT = suma de los cT de los hijos) y para que sea falso basta un hijo (cF = mínimo de los cF); en un OR es al revés. El árbol llega por niveles: se guardan las filas y se recorren desde la última hasta la raíz, repartiendo en orden los hijos del nivel de abajo entre los nodos internos. La respuesta es el costo del valor contrario al actual de la raíz, max(cT, cF), porque el valor actual cuesta 0.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "C",
+    "name": "AROD",
+    "file": "AROD.py / AROD.cpp",
+    "topic": "Conteo / geometría en retícula",
+    "time_complexity": "O(mx·my + V log V + mx² + my²)",
+    "memory": "O(mx·my)",
+    "explanation": "Degenerados: entre dos extremos separados por (dx,dy) hay gcd(dx,dy)-1 puntos intermedios; se multiplica por el número de traslaciones. Los demás se agrupan por caja envolvente w×h, que aparece (mx-w+1)(my-h+1) veces, y siempre tienen un vértice en una esquina. (i) Con dos esquinas opuestas, el tercer punto queda dentro del círculo cuyo diámetro es la diagonal: salen 4 rectos y el resto obtusos, descontando la diagonal. (ii-b) Con dos esquinas adyacentes y un punto en el lado opuesto, es obtuso si x(w-x) > h², lo que se cuenta con raíz entera. (ii-a) Con una esquina y un punto en cada lado lejano, el ángulo en B es obtuso si w·x' < y(h-y); esa suma ponderada sale de una criba sobre los productos w·x'. Agudos = total menos el resto. Comprobado contra fuerza bruta.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "D",
+    "name": "But I Want to Win",
+    "file": "Butiwant.py / Butiwant.cpp",
+    "topic": "Greedy / simulación",
+    "time_complexity": "O(c log c)",
+    "memory": "O(c)",
+    "explanation": "Si el primero ya tiene más de la mitad, gana en la primera ronda y es imposible. En el mejor caso para el segundo, todos los votos de cada eliminado pasan a él. Los demás candidatos no cambian, así que en cada ronda se elimina el menor de los que quedan (los valores son distintos, no hay empates). Se ordenan los votos y se suman los menores al segundo, contando rondas hasta que supere estrictamente la mitad del total. Si solo quedan dos candidatos sin superarla (o empatados), o si había solo dos desde el principio, se imprime IMPOSSIBLE TO WIN.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "E",
+    "name": "Chess Solitaire",
+    "file": "Chess.py / Chess.cpp",
+    "topic": "Backtracking con memoización",
+    "time_complexity": "O(estados · m²)",
+    "memory": "O(estados)",
+    "explanation": "Se hace una búsqueda en profundidad. En cada estado se generan todas las capturas legales: el caballo y el rey saltan, y el alfil, la torre y la dama se deslizan hasta la primera pieza que encuentran. Luego se ordenan por (casilla origen, casilla destino) como texto. Probándolas en ese orden, la primera secuencia completa que aparece es justo la del desempate lexicográfico movimiento a movimiento. Cada captura quita una pieza, así que la profundidad es m-1 <= 9. Los estados (piezas con su posición) que ya se sabe que no tienen solución se guardan en un conjunto para no repetirlos. Si la raíz falla, se imprime No solution.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "F",
+    "name": "Fractional Sequence",
+    "file": "Sequence.py / Sequence.cpp",
+    "topic": "Matemáticas",
+    "time_complexity": "O(1)",
+    "memory": "O(1)",
+    "explanation": "El bloque i tiene exactamente i términos, así que antes de él hay i(i-1)/2. Se busca el i con i(i-1)/2 < n <= i(i+1)/2 a partir de una raíz cuadrada aproximada, corregida con un par de pasos para evitar errores de redondeo. La posición dentro del bloque es k = n - i(i-1)/2 - 1 y el valor es i + k/i. Si k = 0 se imprime solo i; si no, se reduce k/i dividiendo entre su gcd y se imprime 'i a/b'. Todo cabe en enteros de 64 bits, porque i es del orden de 9·10⁴.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "G",
+    "name": "How Many Balls?",
+    "file": "Balls.py / Balls.cpp",
+    "topic": "Matemáticas / ecuación cuadrática",
+    "time_complexity": "O(R), R = 10⁶",
+    "memory": "O(1)",
+    "explanation": "De 2rgq = p(r+g)(r+g-1), despejando g, sale la cuadrática p·g² + (p(2r-1) - 2rq)·g + p(r² - r) = 0. Se recorre r de 1 a 10⁶ en orden, así que el primero que sirve es el de menor r. Para cada r se calcula el discriminante, que debe ser no negativo y cuadrado perfecto (raíz entera exacta: isqrt en Python, sqrtl corregido en C++). La raíz mayor, (-B + raíz)/(2p), tiene que ser entera y al menos r. El enunciado garantiza a lo sumo un g válido por cada r. Los valores intermedios llegan a unos 4·10¹⁸, que cabe en long long.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "H",
+    "name": "Move It, Slowpoke!",
+    "file": "Slowpoke.py / Slowpoke.cpp",
+    "topic": "Dijkstra sobre estados",
+    "time_complexity": "O(m · d · grado · log)",
+    "memory": "O(m · d)",
+    "explanation": "El estado es la calle dirigida por la que se acaba de llegar (a->b) junto con el largo c del tramo continuo actual, acotado a d+1. Desde (a->b, c) se puede seguir por cualquier calle b->x con x != a, porque no hay vueltas en U. Si (a,b,x) es un par continuo, el tramo pasa a c+l y solo vale si c+l <= d; si no lo es, el tramo se reinicia en l (una calle sola sí puede medir más que d). Dijkstra arranca desde todas las calles que salen de s. Las transiciones no continuas no dependen de c, así que solo se relajan la primera vez que la calle sale de la cola. La respuesta es la primera llegada a t.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "I",
+    "name": "Number Pyramid",
+    "file": "Pyramid.py / Pyramid.cpp",
+    "topic": "Propagación de restricciones",
+    "time_complexity": "O(n²)",
+    "memory": "O(n²)",
+    "explanation": "Según el enunciado, las tarjetas válidas se resuelven deduciendo casillas a partir de sus vecinas, así que se simula esa propagación con una cola. En cada triángulo (padre, hijo izquierdo, hijo derecho) se cumple padre = izq + der. Si se conocen dos valores, se calcula el tercero y se encolan los triángulos que tocan la casilla nueva; si se conocen los tres, se comprueba la igualdad. Una contradicción, o un valor deducido fuera de [-99, 99], da no solution. Si al final queda alguna casilla vacía, hay grados de libertad y la respuesta es ambiguous; si no, solvable y se imprime la pirámide. Cada casilla se llena una sola vez: O(n²).",
+    "status": "local-ok"
+  },
+  {
+    "letter": "J",
+    "name": "Polyomino Tiling",
+    "file": "Polyomino.py / Polyomino.cpp",
+    "topic": "Cadenas / palíndromos con hueco + bitsets",
+    "time_complexity": "O(k³/64) peor caso teórico; ~k²/8 arcos × k/64 en la práctica",
+    "memory": "O(k²/64)",
+    "explanation": "En ambas formas, cada factor U que empieza en q tiene su reverso complementado en q+h, con h = k/2. Un arco (q,L) es bueno si B[q..q+L) y B[q+h..q+h+L) son reverso-complemento. Esa condición empareja la posición i con c+h-i, donde c es la suma de los extremos; con c fijo, los arcos buenos están anidados, así que se obtienen expandiendo desde cada uno de los k centros. Una factorización es una cadena de 2 o 3 arcos buenos seguidos que suman exactamente h. Para 3 arcos se fija el primero (q1,a) y, con un AND de bitsets, se cuentan los b para los que (q1+a,b) y el arco que cierra en q1+h son buenos. Cada factorización aparece en las rotaciones s y s+h, de ahí el ×2.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "K",
+    "name": "Triptych",
+    "file": "Triptych.py / Triptych.cpp",
+    "topic": "DP de conteo",
+    "time_complexity": "O(w³)",
+    "memory": "O(w²)",
+    "explanation": "Primero se cuentan todas las secuencias que cumplen las reglas de variedad y equilibrio, y después se restan los palíndromos que también las cumplen. El DP avanza posición a posición con estado (cantidad de A, cantidad de B, último estado entre A, B, BB y C); la cantidad de C sale del largo. Las transiciones prohíben AA, CC y BBB. Al final se suman los estados cuyas tres cantidades difieren a lo sumo en d. Un palíndromo queda fijado por su primera mitad: con w par, la mitad debe terminar en una B sola (el centro queda BB); con w impar, la letra central debe ser distinta de la última de la mitad. Las cantidades totales son el doble de las de la mitad más la del centro. Todo cabe en 64 bits.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "L",
+    "name": "Valley Gulls",
+    "file": "Valley.py / Valley.cpp",
+    "topic": "Simulación por eventos",
+    "time_complexity": "O(p² · (p + m))",
+    "memory": "O(p + m)",
+    "explanation": "El terreno se parte en cuencas separadas por los máximos locales; los acantilados cuentan como altura infinita. Cada lago recibe la lluvia que cae sobre todo su ancho (r·ancho de área por hora) más lo que desbordan los lagos llenos que drenan hacia él. Un lago lleno desborda por su borde más bajo y el agua sigue hasta llegar a un lago que todavía se está llenando. En cada fase se calcula cuánto tarda cada lago en llegar a su borde más bajo. Se avanza hasta el evento más próximo, y ese lago queda lleno o se fusiona con el vecino lleno a la misma altura. Antes de avanzar se revisa si algún nido del lago queda cubierto, usando el área exacta bajo el nivel del nido (trapecios y triángulos).",
+    "status": "local-ok"
+  }
+]
