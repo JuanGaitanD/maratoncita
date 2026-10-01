@@ -1,0 +1,132 @@
+[
+  {
+    "letter": "A",
+    "name": "Intentional Blank Page",
+    "file": "Intentional",
+    "topic": "Ad hoc",
+    "time_complexity": "O(p)",
+    "memory": "O(1)",
+    "explanation": "Cada problema empieza en una página frontal. Si tiene un número par de páginas termina en una trasera y el siguiente arranca de frente sin desperdicio; si tiene un número impar, su última página queda en el frente y la trasera correspondiente se deja en blanco con el mensaje. Por lo tanto la respuesta es simplemente la cantidad de problemas con número impar de páginas. Se lee la lista y se suma x mod 2 de cada valor. No hay casos especiales: incluso el último problema cuenta si es impar, como muestra el tercer ejemplo con un solo problema de una página.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "B",
+    "name": "Full House",
+    "file": "Full",
+    "topic": "Ad hoc, conteo",
+    "time_complexity": "O(1)",
+    "memory": "O(1)",
+    "explanation": "Se cuentan las apariciones de cada dígito del número tratado como cadena. Un full house corresponde exactamente a que las frecuencias, ordenadas de menor a mayor, sean [2, 3]: dos valores distintos, uno repetido dos veces y otro tres. Cualquier otra distribución falla: cinco iguales da [5], cuatro y uno da [1, 4], tres y dos distintos da [1, 1, 3], etc. Con un Counter en Python o un map en C++ se obtienen las frecuencias, se ordenan y se comparan contra la lista objetivo. Es O(1) porque siempre hay cinco dígitos.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "C",
+    "name": "Duck Stress Balls",
+    "file": "Duck",
+    "topic": "Greedy, conteo",
+    "time_complexity": "O(c)",
+    "memory": "O(1)",
+    "explanation": "Cada equipo puede recibir a lo sumo un pato de cada color, así que un color con más de n patos hace imposible el reparto. Esa condición también es suficiente: repartiendo siempre un pato de cada uno de los tres colores más abundantes se mantiene la invariante máximo <= equipos restantes (argumento clásico de intercambio) hasta agotar todo. Por eso basta verificar 3*max <= total. Se validó contra una simulación greedy en casos aleatorios. El segundo ejemplo falla porque 59 y 60 superan los 40 equipos.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "D",
+    "name": "Twin Numbers",
+    "file": "Twin",
+    "topic": "Matemáticas, conteo por dígitos",
+    "time_complexity": "O(len)",
+    "memory": "O(len)",
+    "explanation": "Un twin de 2m dígitos queda determinado por su mitad h de m dígitos sin cero inicial. Se define f(X) = twins <= X. Los de menor longitud suman 9*(1+10+...+10^(t-1)) = 10^t - 1, con t la mitad de la mayor longitud par menor que la de X. Si X tiene longitud impar no hay más. Si es par, se recorren los pares de X: mientras ambos dígitos coinciden se copian en h; en el primer par distinto (a, b) se toma a si a < b o a-1 si a > b y se completa con nueves. Todo se lleva mod 10007. La respuesta es f(hi) - f(lo) + [lo es twin].",
+    "status": "local-ok"
+  },
+  {
+    "letter": "E",
+    "name": "Simple House",
+    "file": "Simple",
+    "topic": "Geometría, búsqueda ternaria",
+    "time_complexity": "O(I^2), I = 100 iteraciones",
+    "memory": "O(1)",
+    "explanation": "La casa es un rectángulo de lados w*t y h*t con centro (x, y). Un rectángulo alineado cabe en un polígono convexo si sus cuatro esquinas cumplen cada semiplano; para el lado con normal (a, b) eso equivale a a*x + b*y + t*(|a|w + |b|h)/2 <= c. Fijado el centro, el mayor t es el mínimo de cuatro funciones lineales, que es cóncavo en (x, y). Por eso se hace búsqueda ternaria anidada: en x por fuera y en y por dentro, 100 iteraciones cada una. La orientación de cada semiplano se fija usando el centroide de los vértices. El área es w*h*t^2.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "F",
+    "name": "Pathfinder and Wolves",
+    "file": "Pathfinder",
+    "topic": "BFS multifuente, DSU (cuello de botella)",
+    "time_complexity": "O(r*c*α)",
+    "memory": "O(r*c)",
+    "explanation": "Primero un BFS multifuente desde todos los lobos da la distancia de cada celda al lobo más cercano; la cola del BFS queda ordenada por distancia. Luego se resuelve un problema de camino de cuello de botella máximo: se activan las celdas de mayor a menor distancia (recorriendo la cola al revés) y se unen con sus vecinas ya activas en un DSU. La primera vez que (1,1) y (r,c) quedan en la misma componente, la distancia de la celda recién activada es la respuesta, porque existe un camino que solo usa celdas con al menos esa distancia. Las celdas con lobo nunca se activan.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "G",
+    "name": "Festival of Blossoms",
+    "file": "Festival",
+    "topic": "Combinatoria sobre cadenas (bordes, Guibas-Odlyzko)",
+    "time_complexity": "O(N * bordes(S))",
+    "memory": "O(N)",
+    "explanation": "Se cuentan las que no contienen S y se restan de K^N. Sea a[n] el número de cadenas de largo n sin S y b[n] las que tienen su primera aparición de S terminando justo en n. Extender una cadena sin S con una letra da K*a[n-1] = a[n] + b[n]. Pegar S al final de una cadena sin S de largo n-m produce una primera aparición que termina en n-m+j para algún borde j de S (prefijo igual a sufijo, incluido j = m), y el resto queda forzado: a[n-m] = suma de b[n-m+j]. Eso da b[n] y luego a[n]. Los bordes se calculan directamente (m <= 1000).",
+    "status": "local-ok"
+  },
+  {
+    "letter": "H",
+    "name": "Birthday Bash",
+    "file": "Birthday",
+    "topic": "Probabilidad (coleccionista de cupones), tabla precalculada",
+    "time_complexity": "O(10^6)",
+    "memory": "O(1000)",
+    "explanation": "Es el problema del coleccionista de cupones: E = n * H_n con H_n = 1 + 1/2 + ... + 1/n. Como n llega a 2e9 no se puede sumar en tiempo de ejecución, así que se precalculó offline (en C++, unos segundos) el valor H_{i*10^6} mod p para i = 0..1000 y se incrustó como tabla en el código. En ejecución se suman los menos de 10^6 términos restantes como una sola fracción num/den (num = num*k + den, den = den*k) para usar un único inverso modular. Para n > p se usa 1/k = 1/(k-p) y H_{p-1} = 0 (Wolstenholme); n = p da 1.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "I",
+    "name": "Dark Things",
+    "file": "Dark",
+    "topic": "Geometría, búsqueda binaria",
+    "time_complexity": "O(k * I * n), I = 55",
+    "memory": "O(n)",
+    "explanation": "Sea A(psi) el área libre con ángulo entre -theta y psi: R^2/2*(psi+theta) menos la parte de cada círculo que queda del lado de ángulo menor que psi. Como ningún círculo contiene el origen y todo cabe en menos de 180 grados, esa parte es un segmento circular respecto a la recta por el origen con ángulo psi: con distancia con signo t = r*sin(phi - psi), el área es rho^2*acos(t/rho) - t*sqrt(rho^2 - t^2), recortando t a [-rho, rho]. Los círculos que no cruzan el rayo (intervalo angular phi ± asin(rho/r)) se resuelven sin trigonometría. A es creciente, así que cada ángulo de área j*Total/k se halla por bisección.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "J",
+    "name": "Galactic Voyage",
+    "file": "Galactic",
+    "topic": "Dijkstra sobre residuos, CRT",
+    "time_complexity": "O(m * (S + P^2 K) log m)",
+    "memory": "O(m)",
+    "explanation": "Con m = min(s), si x es alcanzable también lo es x + t*m, así que basta d[r] = menor posición alcanzable con residuo r mod m (idea de Frobenius). Aristas: sumar cualquier s_i, y saltos: desde x = 0 (mod p_j) hasta x+delta = 0 (mod p_k), delta <= K. Para un residuo r con distancia d, el menor x >= d con x = r (mod m) y esas dos congruencias se obtiene por CRT; las combinaciones (j, k, delta) se precalculan. Como el costo resultante es monótono en d, Dijkstra es válido. Si algún residuo queda inalcanzable hay infinitos (respuesta -1); si no, la respuesta es max(d) - m, o -1 si es <= 0.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "K",
+    "name": "Degenerating Walkways",
+    "file": "Degenerating",
+    "topic": "Probabilidad en árboles, árbol virtual, rerooting",
+    "time_complexity": "O((n + m) log n)",
+    "memory": "O(n log n)",
+    "explanation": "Por linealidad, la respuesta es la suma de las probabilidades de recolectar en cada nodo b; si x_{L+1} está en b (pos L), hay que llegar a b con nivel L. Esa masa viene de nodos con pos L-1 (o de los inicios, para L = 0) por caminos sin otros nodos de pos L, y cada nodo intermedio multiplica por (p/q)^(L+1)/(deg-1). Para cada nivel se construye el árbol virtual de A_{L-1} U A_L (aristas comprimidas con prefijos de 1/(deg-1)) y se pasan mensajes de subida y bajada; los nodos de A_L absorben. Se guarda la masa por dirección de llegada para no emitirla de vuelta por la misma arista en el siguiente nivel.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "L",
+    "name": "Copogonia",
+    "file": "Copogonia",
+    "topic": "Grafos, fuerza bruta sobre subconjuntos",
+    "time_complexity": "O(2^k * n^2)",
+    "memory": "O(k * n^2)",
+    "explanation": "Con k <= 10 hay solo 1024 subconjuntos. Se hace DFS decidiendo incluir o no cada vía; al incluir la vía (u, v) de longitud euclidiana w, la matriz de distancias se actualiza en O(n^2) con d[i][j] = min(d[i][j], d[i][u] + w + d[v][j], d[i][v] + w + d[u][j]), que es exacto al agregar una sola arista. La matriz inicial sale de las distancias sobre el ciclo (perímetro acumulado, el menor de los dos sentidos). Se poda cuando el costo ya no mejora la mejor respuesta, y se corta la rama en cuanto el máximo de la matriz es <= m, porque agregar más vías solo cuesta más.",
+    "status": "local-ok"
+  },
+  {
+    "letter": "M",
+    "name": "Weekend Gardening",
+    "file": "Weekend",
+    "topic": "Probabilidad, DP",
+    "time_complexity": "O(c*n*e)",
+    "memory": "O(c*n*e)",
+    "explanation": "El estado es (i, j, l): cuántas baratas, normales y caras se han comprado; con eso se conoce el total y las plantas restantes. Desde un estado con total < L, cada tipo se elige con probabilidad (restantes de ese tipo)/(restantes totales). Si la compra lleva el total a >= L se para: suma a la respuesta si no pasa de H. Si se acaban las plantas sin llegar a L es fracaso. Hay a lo sumo 101^3 estados y se recorren por número de plantas compradas (Python) o en orden lexicográfico (C++), que respeta las transiciones. Se validó contra una recursión exhaustiva.",
+    "status": "local-ok"
+  }
+]
