@@ -2,7 +2,7 @@
   {
     "letter": "A",
     "name": "Alejandro, lee por favor",
-    "file": "Alejandro.py / Alejandro.cpp",
+    "file": "Alejandro",
     "topic": "Simulación / cadenas",
     "time_complexity": "O(L)",
     "memory": "O(L)",
@@ -12,7 +12,7 @@
   {
     "letter": "B",
     "name": "Betito el viajero",
-    "file": "Betito.py / Betito.cpp",
+    "file": "Betito",
     "topic": "Grafos / flood fill",
     "time_complexity": "O(R·C) por caso",
     "memory": "O(R·C)",
@@ -22,7 +22,7 @@
   {
     "letter": "C",
     "name": "Company",
-    "file": "Company.py / Company.cpp",
+    "file": "Company",
     "topic": "Árboles / DP",
     "time_complexity": "O(N)",
     "memory": "O(N)",
@@ -32,7 +32,7 @@
   {
     "letter": "D",
     "name": "Dangerous odyssey",
-    "file": "Dangerous.py / Dangerous.cpp",
+    "file": "Dangerous",
     "topic": "BFS en grilla / sumas de prefijos",
     "time_complexity": "O(N·M)",
     "memory": "O(N·M)",
@@ -42,7 +42,7 @@
   {
     "letter": "E",
     "name": "Enarmonía",
-    "file": "Enarmonia.py / Enarmonia.cpp",
+    "file": "Enarmonia",
     "topic": "Programación dinámica",
     "time_complexity": "O(T²·K)",
     "memory": "O(T·K)",
@@ -52,7 +52,7 @@
   {
     "letter": "F",
     "name": "Flipando colores con la DIAN",
-    "file": "Flipando.py / Flipando.cpp",
+    "file": "Flipando",
     "topic": "Greedy / scheduling en árboles (Horn)",
     "time_complexity": "O(n log n)",
     "memory": "O(n)",
@@ -62,7 +62,7 @@
   {
     "letter": "G",
     "name": "Guanex y el diámetro con actualizaciones",
-    "file": "Guanex.py / Guanex.cpp",
+    "file": "Guanex",
     "topic": "Árboles / LCA (binary lifting)",
     "time_complexity": "O((n+q) log V)",
     "memory": "O(V log V)",
@@ -72,7 +72,7 @@
   {
     "letter": "H",
     "name": "Humbertov y su taza de café",
-    "file": "Humbertov.py / Humbertov.cpp",
+    "file": "Humbertov",
     "topic": "Geometría / fórmula cerrada",
     "time_complexity": "O(1) por caso",
     "memory": "O(1)",
@@ -82,7 +82,7 @@
   {
     "letter": "I",
     "name": "Internal triangles",
-    "file": "Internal.py / Internal.cpp",
+    "file": "Internal",
     "topic": "Combinatoria / aritmética modular",
     "time_complexity": "O(1) por consulta",
     "memory": "O(q)",
@@ -92,7 +92,7 @@
   {
     "letter": "J",
     "name": "Juan y sus ovejas",
-    "file": "Juan.py / Juan.cpp",
+    "file": "Juan",
     "topic": "Union-Find",
     "time_complexity": "O((N+P) α(N))",
     "memory": "O(N)",
@@ -102,7 +102,7 @@
   {
     "letter": "K",
     "name": "K-th shortest path",
-    "file": "Kthpath.py / Kthpath.cpp",
+    "file": "Kthpath",
     "topic": "Dijkstra",
     "time_complexity": "O(K·M log N)",
     "memory": "O(N+M)",
@@ -112,7 +112,7 @@
   {
     "letter": "L",
     "name": "Locate Tobby's nest",
-    "file": "Locate.py / Locate.cpp",
+    "file": "Locate",
     "topic": "Árboles / centro por BFS",
     "time_complexity": "O(H·W) por caso",
     "memory": "O(H·W)",
@@ -122,7 +122,7 @@
   {
     "letter": "M",
     "name": "Marble tilt maze",
-    "file": "Marble.py / Marble.cpp",
+    "file": "Marble",
     "topic": "BFS en espacio de estados",
     "time_complexity": "O((NM)²)",
     "memory": "O((NM)²)",

@@ -2,7 +2,7 @@
   {
     "letter": "A",
     "name": "A Little Leftover Pizza",
-    "file": "Pizza.py / Pizza.cpp",
+    "file": "Pizza",
     "topic": "Implementación / aritmética",
     "time_complexity": "O(n)",
     "memory": "O(1)",
@@ -12,7 +12,7 @@
   {
     "letter": "B",
     "name": "Andor Strikes Again",
-    "file": "Andor.py / Andor.cpp",
+    "file": "Andor",
     "topic": "DP en árboles",
     "time_complexity": "O(N)",
     "memory": "O(N)",
@@ -22,7 +22,7 @@
   {
     "letter": "C",
     "name": "AROD",
-    "file": "AROD.py / AROD.cpp",
+    "file": "AROD",
     "topic": "Conteo / geometría en retícula",
     "time_complexity": "O(mx·my + V log V + mx² + my²)",
     "memory": "O(mx·my)",
@@ -32,7 +32,7 @@
   {
     "letter": "D",
     "name": "But I Want to Win",
-    "file": "Butiwant.py / Butiwant.cpp",
+    "file": "Butiwant",
     "topic": "Greedy / simulación",
     "time_complexity": "O(c log c)",
     "memory": "O(c)",
@@ -42,7 +42,7 @@
   {
     "letter": "E",
     "name": "Chess Solitaire",
-    "file": "Chess.py / Chess.cpp",
+    "file": "Chess",
     "topic": "Backtracking con memoización",
     "time_complexity": "O(estados · m²)",
     "memory": "O(estados)",
@@ -52,7 +52,7 @@
   {
     "letter": "F",
     "name": "Fractional Sequence",
-    "file": "Sequence.py / Sequence.cpp",
+    "file": "Sequence",
     "topic": "Matemáticas",
     "time_complexity": "O(1)",
     "memory": "O(1)",
@@ -62,7 +62,7 @@
   {
     "letter": "G",
     "name": "How Many Balls?",
-    "file": "Balls.py / Balls.cpp",
+    "file": "Balls",
     "topic": "Matemáticas / ecuación cuadrática",
     "time_complexity": "O(R), R = 10⁶",
     "memory": "O(1)",
@@ -72,7 +72,7 @@
   {
     "letter": "H",
     "name": "Move It, Slowpoke!",
-    "file": "Slowpoke.py / Slowpoke.cpp",
+    "file": "Slowpoke",
     "topic": "Dijkstra sobre estados",
     "time_complexity": "O(m · d · grado · log)",
     "memory": "O(m · d)",
@@ -82,7 +82,7 @@
   {
     "letter": "I",
     "name": "Number Pyramid",
-    "file": "Pyramid.py / Pyramid.cpp",
+    "file": "Pyramid",
     "topic": "Propagación de restricciones",
     "time_complexity": "O(n²)",
     "memory": "O(n²)",
@@ -92,7 +92,7 @@
   {
     "letter": "J",
     "name": "Polyomino Tiling",
-    "file": "Polyomino.py / Polyomino.cpp",
+    "file": "Polyomino",
     "topic": "Cadenas / palíndromos con hueco + bitsets",
     "time_complexity": "O(k³/64) peor caso teórico; ~k²/8 arcos × k/64 en la práctica",
     "memory": "O(k²/64)",
@@ -102,7 +102,7 @@
   {
     "letter": "K",
     "name": "Triptych",
-    "file": "Triptych.py / Triptych.cpp",
+    "file": "Triptych",
     "topic": "DP de conteo",
     "time_complexity": "O(w³)",
     "memory": "O(w²)",
@@ -112,7 +112,7 @@
   {
     "letter": "L",
     "name": "Valley Gulls",
-    "file": "Valley.py / Valley.cpp",
+    "file": "Valley",
     "topic": "Simulación por eventos",
     "time_complexity": "O(p² · (p + m))",
     "memory": "O(p + m)",

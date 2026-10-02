@@ -2,7 +2,7 @@
   {
     "letter": "A",
     "name": "Alto Adaptation",
-    "file": "Adaptation.py / Adaptation.cpp",
+    "file": "Adaptation",
     "topic": "DP",
     "time_complexity": "O(n^2)",
     "memory": "O(n)",
@@ -12,7 +12,7 @@
   {
     "letter": "B",
     "name": "Bottle of New Port",
-    "file": "Bottle.py / Bottle.cpp",
+    "file": "Bottle",
     "topic": "Matemáticas / ad hoc",
     "time_complexity": "O(1)",
     "memory": "O(1)",
@@ -22,7 +22,7 @@
   {
     "letter": "C",
     "name": "Chess",
-    "file": "Chess.py / Chess.cpp",
+    "file": "Chess",
     "topic": "Simulación",
     "time_complexity": "O(N^2 + M)",
     "memory": "O(N^2)",
@@ -32,7 +32,7 @@
   {
     "letter": "D",
     "name": "Dralinpome",
-    "file": "Dralinpome.py / Dralinpome.cpp",
+    "file": "Dralinpome",
     "topic": "Strings / conteo",
     "time_complexity": "O(|s|)",
     "memory": "O(1)",
@@ -42,7 +42,7 @@
   {
     "letter": "E",
     "name": "Encrypting",
-    "file": "Encrypting.py / Encrypting.cpp",
+    "file": "Encrypting",
     "topic": "Strings / ad hoc",
     "time_complexity": "O(N)",
     "memory": "O(N)",
@@ -52,7 +52,7 @@
   {
     "letter": "F",
     "name": "Flakes",
-    "file": "Flakes.py / Flakes.cpp",
+    "file": "Flakes",
     "topic": "Simulación / grillas",
     "time_complexity": "O(nm(n+m))",
     "memory": "O(nm)",
@@ -62,7 +62,7 @@
   {
     "letter": "G",
     "name": "Genealogy Gumbo",
-    "file": "Genealogy.py / Genealogy.cpp",
+    "file": "Genealogy",
     "topic": "Grafos / alcanzabilidad",
     "time_complexity": "O(n log n)",
     "memory": "O(n)",
@@ -72,7 +72,7 @@
   {
     "letter": "H",
     "name": "Hidden Sequence",
-    "file": "Hidden.py / Hidden.cpp",
+    "file": "Hidden",
     "topic": "Greedy / punteros",
     "time_complexity": "O(total)",
     "memory": "O(total)",
@@ -82,7 +82,7 @@
   {
     "letter": "I",
     "name": "Item Selection",
-    "file": "Item.py / Item.cpp",
+    "file": "Item",
     "topic": "Greedy",
     "time_complexity": "O(n)",
     "memory": "O(n)",
@@ -92,7 +92,7 @@
   {
     "letter": "J",
     "name": "Judge Meetings",
-    "file": "Judge.py / Judge.cpp",
+    "file": "Judge",
     "topic": "Simulación",
     "time_complexity": "O(n*m)",
     "memory": "O(m)",
@@ -102,7 +102,7 @@
   {
     "letter": "K",
     "name": "Koehandel",
-    "file": "Koehandel.py / Koehandel.cpp",
+    "file": "Koehandel",
     "topic": "Ad hoc",
     "time_complexity": "O(1)",
     "memory": "O(1)",
@@ -112,7 +112,7 @@
   {
     "letter": "L",
     "name": "Luminosity",
-    "file": "Luminosity.py / Luminosity.cpp",
+    "file": "Luminosity",
     "topic": "DP de intervalos / TSP en la recta",
     "time_complexity": "O(K^2), K <= 2N+1",
     "memory": "O(K)",
@@ -122,7 +122,7 @@
   {
     "letter": "M",
     "name": "Most Scenic Cycle",
-    "file": "Most.py / Most.cpp",
+    "file": "Most",
     "topic": "Grafos serie-paralelo",
     "time_complexity": "O(E log E)",
     "memory": "O(E)",

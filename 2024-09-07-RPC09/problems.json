@@ -2,7 +2,7 @@
   {
     "letter": "A",
     "name": "Alien Attack",
-    "file": "Alien.py / Alien.cpp",
+    "file": "Alien",
     "topic": "Grafos / simulación + DSU en reversa",
     "time_complexity": "O((n+m) log n)",
     "memory": "O(n+m)",
@@ -12,7 +12,7 @@
   {
     "letter": "B",
     "name": "Broken Borders",
-    "file": "Broken.py / Broken.cpp",
+    "file": "Broken",
     "topic": "Geometría + strings (arreglo de sufijos)",
     "time_complexity": "O((n + Σk) log n)",
     "memory": "O(n + Σk)",
@@ -22,7 +22,7 @@
   {
     "letter": "C",
     "name": "Christmas Calories",
-    "file": "Christmas.py / Christmas.cpp",
+    "file": "Christmas",
     "topic": "Geometría / probabilidad",
     "time_complexity": "O(1)",
     "memory": "O(1)",
@@ -32,7 +32,7 @@
   {
     "letter": "D",
     "name": "Discus Domination",
-    "file": "Discus.py / Discus.cpp",
+    "file": "Discus",
     "topic": "Ventana deslizante",
     "time_complexity": "O(n)",
     "memory": "O(n)",
@@ -42,7 +42,7 @@
   {
     "letter": "E",
     "name": "Elegant Exterior",
-    "file": "Elegant.py / Elegant.cpp",
+    "file": "Elegant",
     "topic": "Optimización / búsqueda ternaria",
     "time_complexity": "O(iteraciones)",
     "memory": "O(1)",
@@ -52,7 +52,7 @@
   {
     "letter": "F",
     "name": "Fragmented Floor",
-    "file": "Fragmented.py / Fragmented.cpp",
+    "file": "Fragmented",
     "topic": "Geometría ortogonal + emparejamiento bipartito",
     "time_complexity": "O(r·n + H·V·(H+V))",
     "memory": "O(H·V)",
@@ -62,7 +62,7 @@
   {
     "letter": "G",
     "name": "Gorgeous Garment",
-    "file": "Gorgeous.py / Gorgeous.cpp",
+    "file": "Gorgeous",
     "topic": "Búsqueda binaria + greedy",
     "time_complexity": "O(k log² n)",
     "memory": "O(n + k)",
@@ -72,7 +72,7 @@
   {
     "letter": "H",
     "name": "Hungry Hunting",
-    "file": "Hungry.py / Hungry.cpp",
+    "file": "Hungry",
     "topic": "DP de cambio de monedas + divide y vencerás",
     "time_complexity": "O(n·w·log n)",
     "memory": "O(w log n)",
@@ -82,7 +82,7 @@
   {
     "letter": "I",
     "name": "Icons in the Toolbar",
-    "file": "Icons.py / Icons.cpp",
+    "file": "Icons",
     "topic": "Greedy / sumas alternadas",
     "time_complexity": "O(N)",
     "memory": "O(N)",
@@ -92,7 +92,7 @@
   {
     "letter": "J",
     "name": "Jinxed Jewelry",
-    "file": "Jinxed.py / Jinxed.cpp",
+    "file": "Jinxed",
     "topic": "Greedy / ordenamiento",
     "time_complexity": "O(n log n)",
     "memory": "O(n)",
@@ -102,7 +102,7 @@
   {
     "letter": "K",
     "name": "K.O. Kids II",
-    "file": "Kids.py / Kids.cpp",
+    "file": "Kids",
     "topic": "Probabilidad / DP",
     "time_complexity": "O(n·k)",
     "memory": "O(k)",
@@ -112,7 +112,7 @@
   {
     "letter": "L",
     "name": "Legendary LAN-Party",
-    "file": "Legendary.py / Legendary.cpp",
+    "file": "Legendary",
     "topic": "Greedy / intercambio (regla de Smith)",
     "time_complexity": "O(n log n)",
     "memory": "O(n)",
@@ -122,7 +122,7 @@
   {
     "letter": "M",
     "name": "Massive Mountains",
-    "file": "Massive.py / Massive.cpp",
+    "file": "Massive",
     "topic": "Grafos / Dijkstra sobre pares + Floyd",
     "time_complexity": "O(n^4)",
     "memory": "O(n^2)",

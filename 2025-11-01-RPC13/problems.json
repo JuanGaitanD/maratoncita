@@ -2,7 +2,7 @@
   {
     "letter": "A",
     "name": "Accidental Arithmetic",
-    "file": "Accidental.py / Accidental.cpp",
+    "file": "Accidental",
     "topic": "Probabilidad / linealidad de la esperanza",
     "time_complexity": "O(L)",
     "memory": "O(L)",
@@ -12,7 +12,7 @@
   {
     "letter": "B",
     "name": "Boggle Sort",
-    "file": "Boggle.py / Boggle.cpp",
+    "file": "Boggle",
     "topic": "DP",
     "time_complexity": "O(16·6·26)",
     "memory": "O(26)",
@@ -22,7 +22,7 @@
   {
     "letter": "C",
     "name": "Coherency",
-    "file": "Coherency.py / Coherency.cpp",
+    "file": "Coherency",
     "topic": "Geometría + rejilla hash + DSU",
     "time_complexity": "O(n·k), k = vecinos por celda",
     "memory": "O(n)",
@@ -32,7 +32,7 @@
   {
     "letter": "D",
     "name": "Dart Game",
-    "file": "Dart.py / Dart.cpp",
+    "file": "Dart",
     "topic": "Implementación",
     "time_complexity": "O(1)",
     "memory": "O(1)",
@@ -42,7 +42,7 @@
   {
     "letter": "E",
     "name": "Excruciating Elevators",
-    "file": "Elevators.py / Elevators.cpp",
+    "file": "Elevators",
     "topic": "Residuos modulares + enumeración de fases ancladas",
     "time_complexity": "O(n^3 · n · 4) ≈ 1e8 (C++ 0.6 s)",
     "memory": "O(n)",
@@ -52,7 +52,7 @@
   {
     "letter": "F",
     "name": "Fences Make Good Neighbors",
-    "file": "Fences.py / Fences.cpp",
+    "file": "Fences",
     "topic": "DP de intervalos (triangulación de polígono convexo)",
     "time_complexity": "O(n^3)",
     "memory": "O(n^2)",
@@ -62,7 +62,7 @@
   {
     "letter": "G",
     "name": "Geometry Rush",
-    "file": "Geometry.py / Geometry.cpp",
+    "file": "Geometry",
     "topic": "Barrido por columnas / intervalos",
     "time_complexity": "O(w + n + m)",
     "memory": "O(w)",
@@ -72,7 +72,7 @@
   {
     "letter": "H",
     "name": "Honest (or dishonest) Lottery",
-    "file": "Honest.py / Honest.cpp",
+    "file": "Honest",
     "topic": "Conteo",
     "time_complexity": "O(n)",
     "memory": "O(1)",
@@ -82,7 +82,7 @@
   {
     "letter": "I",
     "name": "Intermill Logistics",
-    "file": "Intermill.py / Intermill.cpp",
+    "file": "Intermill",
     "topic": "Greedy + ordenamiento",
     "time_complexity": "O(n log n)",
     "memory": "O(n)",
@@ -92,7 +92,7 @@
   {
     "letter": "J",
     "name": "Jump ... Triple Jump",
-    "file": "Jump.py / Jump.cpp",
+    "file": "Jump",
     "topic": "Fuerza bruta",
     "time_complexity": "O(1000)",
     "memory": "O(1)",
@@ -102,7 +102,7 @@
   {
     "letter": "K",
     "name": "Knowing the Clock",
-    "file": "Knowing.py / Knowing.cpp",
+    "file": "Knowing",
     "topic": "Matemática",
     "time_complexity": "O(1)",
     "memory": "O(1)",
@@ -112,7 +112,7 @@
   {
     "letter": "L",
     "name": "Linguistic Labyrinth",
-    "file": "Labyrinth.py / Labyrinth.cpp",
+    "file": "Labyrinth",
     "topic": "Conteo en retícula 3D",
     "time_complexity": "O(n^3·(2n)^3)",
     "memory": "O(n^3)",
@@ -122,7 +122,7 @@
   {
     "letter": "M",
     "name": "Marching Orders",
-    "file": "Marching.py / Marching.cpp",
+    "file": "Marching",
     "topic": "CRT generalizado",
     "time_complexity": "O(n^2)",
     "memory": "O(n)",
