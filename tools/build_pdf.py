@@ -106,6 +106,31 @@ def code_block(path):
     return [Preformatted(src, CODE, maxLineLength=118)]
 
 
+def tests_block(folder, name, limit=3, maxbytes=300):
+    """Tabla con los casos de prueba pequeños del problema (entrada | salida esperada)."""
+    ins = sorted(glob.glob(os.path.join(folder, "tests", name + ".*.in")),
+                 key=lambda q: int(q.rsplit(".", 2)[-2]) if q.rsplit(".", 2)[-2].isdigit() else 99)
+    rows = []
+    for q in ins:
+        o = q[:-3] + ".out"
+        if not os.path.exists(o) or os.path.getsize(q) > maxbytes or os.path.getsize(o) > maxbytes:
+            continue
+        inp = open(q, encoding="utf-8", errors="replace").read().strip()
+        exp = open(o, encoding="utf-8", errors="replace").read().strip()
+        rows.append([Preformatted(inp, CODE, maxLineLength=52), Preformatted(exp, CODE, maxLineLength=52)])
+        if len(rows) == limit:
+            break
+    if not rows:
+        return [Paragraph("<i>(solo hay casos grandes; ver tests/ en el repositorio)</i>", SMALL)]
+    t = Table([["Entrada", "Salida esperada"]] + rows, colWidths=[9.0 * cm, 9.0 * cm], repeatRows=1)
+    t.setStyle(TableStyle([
+        ("FONT", (0, 0), (-1, 0), "Helvetica-Bold", 7.5), ("TEXTCOLOR", (0, 0), (-1, -1), BLACK),
+        ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#dddddd")),
+        ("GRID", (0, 0), (-1, -1), 0.25, colors.grey), ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("TOPPADDING", (0, 0), (-1, -1), 2), ("BOTTOMPADDING", (0, 0), (-1, -1), 2)]))
+    return [t]
+
+
 def build(items, pages, out, shown):
     doc = Doc(out, pages=pages, pagesize=letter, leftMargin=1.5 * cm, rightMargin=1.5 * cm,
               topMargin=1.5 * cm, bottomMargin=1.5 * cm,
@@ -142,6 +167,7 @@ def build(items, pages, out, shown):
         story += [KeepTogether(head)]
         story += [Paragraph("Python 3", H3)] + code_block(os.path.join(p["folder"], p["file"] + ".py"))
         story += [Paragraph("C++11", H3)] + code_block(os.path.join(p["folder"], p["file"] + ".cpp"))
+        story += [Paragraph("Casos de prueba", H3)] + tests_block(p["folder"], p["file"])
         story += [Spacer(1, 10)]
 
     def footer(canv, d):
